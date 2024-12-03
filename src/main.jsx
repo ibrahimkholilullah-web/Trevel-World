@@ -5,11 +5,16 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import router from "./Router/router";
+import AuthPrivated from "./Components/AuthPrivate/AuthPrivated";
+import { ToastContainer} from 'react-toastify';
 
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    <AuthPrivated>
     <RouterProvider router={router} />
+    <ToastContainer />
+    </AuthPrivated>
   </React.StrictMode>
 );
