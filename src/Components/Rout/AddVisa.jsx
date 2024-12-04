@@ -51,8 +51,8 @@ const AddVisa = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600">
-      <div className="my-4 w-2/3 bg-[#F1F5EB] rounded-lg shadow-lg p-8">
+    <div className="flex items-center justify-center min-h-screen ">
+      <div className="my-4 w-2/3 bg-[#F1F5EB] rounded-lg border-2 border-amber-900 text-sm shadow-2xl p-8">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-700">Add Visa</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Country Image and Name */}

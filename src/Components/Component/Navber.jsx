@@ -21,7 +21,7 @@ const Navber = () => {
     <>
       <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/addvisa">Add Visa</NavLink></li>
-      <li><NavLink to="/services">Services</NavLink></li>
+      <li><NavLink to="/allvisa">All Visa</NavLink></li>
       <li><NavLink to="/contact">Contact</NavLink></li>
     </>
   );
