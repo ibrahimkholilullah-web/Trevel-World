@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AuthProvider } from "../AuthPrivate/AuthPrivated";
+import Navber from "../Component/Navber";
 
 const visaDitails = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [loggedInUser] = useState({ email: "user@example.com" }); // Mock user data
   const currentDate = new Date().toISOString().split("T")[0]; // Format as YYYY-MM-DD
-
+  const {user} = useContext(AuthProvider)
   const handleSubmitVisaForm = (e) => {
     e.preventDefault();
 
@@ -33,7 +34,9 @@ const visaDitails = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600">
+    <div className="container mx-auto">
+      <Navber></Navber>
+      <div className="flex items-center justify-center min-h-screen">
       <div className="my-4 w-2/3 bg-[#F1F5EB] rounded-lg shadow-lg p-8">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-700">Add Visa</h2>
         <form onSubmit={handleSubmitVisaDetails} className="space-y-4">
@@ -69,7 +72,7 @@ const visaDitails = () => {
                 <input
                   type="email"
                   name="email"
-                  value={loggedInUser.email}
+                  value={user.email}
                   readOnly
                   className="input input-bordered w-full border-gray-300 rounded-lg bg-gray-100"
                 />
@@ -133,6 +136,7 @@ const visaDitails = () => {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import MyAddAllVisa from './MyaddAllVisa';
+import VisaCard from './VisaCard';
 
 const Allvisa = () => {
     const allvisa = useLoaderData();
@@ -16,7 +17,7 @@ const Allvisa = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-4">
                 {visas.map(visa => (
-                    <MyAddAllVisa
+                    <VisaCard
                         key={visa._id}
                         setVisas={setVisas}
                         visas={visas}

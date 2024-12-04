@@ -21,9 +21,9 @@ const Navber = () => {
   const data = (
     <>
       <li><NavLink to="/">Home</NavLink></li>
-      <li><NavLink to="/addvisa">Add Visa</NavLink></li>
-      <li><NavLink to="/allvisa">All Visa</NavLink></li>
-      <li><NavLink to="/contact">Contact</NavLink></li>
+      <li><NavLink to="/addvisa">Add Visas</NavLink></li>
+      <li><NavLink to="/allvisa">All Visas</NavLink></li>
+      <li><NavLink to="/myvisaApplication">My Visa Application</NavLink></li>
     </>
   );
 

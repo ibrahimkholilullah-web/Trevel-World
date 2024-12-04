@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const AddVisa = () => {
   const handleSubmit = (e) => {
@@ -44,10 +45,8 @@ const AddVisa = () => {
     .then(res => res.json())
     .then(data =>{
         console.log(data)
+        toast.success("Visa added successfully!")
     })
-    // Implement your database storage logic here
-    console.log("Visa Data: ", visaData);
-    alert("Visa added successfully!");
   };
 
   return (
