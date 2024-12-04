@@ -5,21 +5,21 @@ import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged,
 export const AuthProvider = createContext()
 const AuthPrivated = ({children}) => { 
     const [user, setUser] = useState(null)
-    const [lodder, setLodder] = useState(true)
+    const [loding, setLoding] = useState(true)
     const handleSignUpEmailandpassword = (email,password) =>{
-        setLodder(true)
+        setLoding(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
     const signinWithUser = (email,password)=>{
-        setLodder(true)
+        setLoding(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
     const googleSignUp = ()=>{
-        setLodder(true)
+        setLoding(true)
         return signInWithPopup(auth,googleProvider)
     }
     const logOutUser = () =>{
-        setLodder(true)
+        setLoding(true)
         return signOut(auth)
     }
     const updateUser = updateInfo =>{
@@ -28,7 +28,7 @@ const AuthPrivated = ({children}) => {
     useEffect(()=>{
         const unsunscribe = onAuthStateChanged(auth, (currendUser)=>{
             setUser(currendUser)
-            setLodder(false)
+            setLoding(false)
         })
         return () =>{
             unsunscribe()
@@ -41,7 +41,8 @@ const AuthPrivated = ({children}) => {
         logOutUser,
         updateUser,
         setUser,
-        user
+        user,
+        loding
     }
     return (
        <AuthProvider.Provider value={authInfo}>

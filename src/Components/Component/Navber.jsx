@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../AuthPrivate/AuthPrivated';
 import bannerImg from "../../assets/banner.png";
+import { CiSearch } from 'react-icons/ci';
 
 const Navber = () => {
   const { logOutUser, user } = useContext(AuthProvider);
@@ -27,7 +28,7 @@ const Navber = () => {
   );
 
   return (
-    <div className="navbar">
+    <div className="navbar border-b-2 mb-4">
       <div className="navbar-start my-4">
         <div className="dropdown">
           <div tabIndex={0} role="button" aria-label="Menu Toggle" className="btn btn-ghost lg:hidden">
@@ -46,6 +47,7 @@ const Navber = () => {
         <ul className="menu menu-horizontal font-bold px-1 text-[#034833]">
           {data}
         </ul>
+       
       </div>
       <div className="navbar-end">
         {user ? (

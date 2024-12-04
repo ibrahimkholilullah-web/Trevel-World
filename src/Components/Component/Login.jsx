@@ -1,11 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import Navber from "./Navber";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthProvider } from "../AuthPrivate/AuthPrivated";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../AuthPrivate/firebase.config";
+import { toast } from "react-toastify";
 
 function Login() {
     const {signinWithUser,googleSignUp,setUser} = useContext(AuthProvider)
+    const location = useLocation()
     const navigate = useNavigate()
+    const emailRef = useRef()
     const LoginUserFrom = e =>{
         e.preventDefault()
         const form = e.target
@@ -16,7 +21,7 @@ function Login() {
         .then((result) => {
             console.log(result.user)
             setUser(result.user)
-            navigate("/")
+            navigate()
         })
         .catch(err => {
             console.log(err.code)
@@ -24,12 +29,25 @@ function Login() {
 
 
     }
+    const handleForgatePassword = () =>{
+      const email = emailRef.current.value
+      console.log(email)
+     if(email){
+      sendPasswordResetEmail(auth, email)
+      .then(() =>{
+        toast.info("please Chack Your Email",{
+          position:"top-center"
+        })
+
+      })
+     }
+    }
     const signUpGoogle =() =>{
         googleSignUp()
         .then((result)=>{
             console.log(result.user)
             setUser(result.user)
-            navigate("/")
+            navigate(location?.state?location.state :"/");
         })
         .catch(err => {
             console.log(err.code)
@@ -41,7 +59,7 @@ function Login() {
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br rounded-md from-green-500 to-purple-600">
       <div className="w-full max-w-md bg-[#F1F5EB] p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
-          Welcome Back
+           Login User
         </h2>
         <form onSubmit={LoginUserFrom}>
           {/* Email Input */}
@@ -51,6 +69,7 @@ function Login() {
             </label>
             <input
               type="email"
+              ref={emailRef}
               id="email"
               name="email"
               placeholder="Enter your email"
@@ -92,7 +111,7 @@ function Login() {
             </a>
           </Link>
           <p className="mt-2">
-            <a href="#" className="text-blue-600 hover:underline">
+            <a href="#" onClick={handleForgatePassword} className="text-blue-600 hover:underline">
               Forgot Password?
             </a>
           </p>
