@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 const MyAddAllVisa = ({ visa, setVisas, visas }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -10,15 +11,37 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
     setIsModalOpen(true);
   };
 
-  const handleDeleteClick = (id) => {
-    fetch(`http://localhost:4500/visa/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const remainingData = visas.filter((visa) => visa._id !== id);
-        setVisas(remainingData);
-      });
+  const handleDeleteClick = (id) => { 
+    Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`http://localhost:4500/visa/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if(data.deletedCount){
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+            const remainingData = visas.filter((visa) => visa._id !== id);
+            setVisas(remainingData);
+          }
+        
+  
+        });
+    }
+  });
+   
   };
 
   const handleSubmitUpdate = (e) => {
@@ -33,23 +56,39 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
       validity: form.validity.value,
       applicationMethod: form.applicationMethod.value,
     };
-
-    fetch(`http://localhost:4500/visa/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedVisa),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const updatedVisas = visas.map((v) =>
-          v._id === _id ? { ...v, ...updatedVisa } : v
-        );
-        setVisas(updatedVisas);
-      });
-
-    setIsModalOpen(false);
+    Swal.fire({
+      title: "Do you want to save the changes?",
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: "Save",
+      denyButtonText: `Don't save`
+    }).then((result) => {
+      fetch(`http://localhost:4500/visa/${_id}`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedVisa),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+              Swal.fire("Saved!", "", "success");
+              const updatedVisas = visas.map((v) =>
+                v._id === _id ? { ...v, ...updatedVisa } : v
+              );
+              setVisas(updatedVisas);
+              setIsModalOpen(false);
+            } else if (result.isDenied) {
+              Swal.fire("Changes are not saved", "", "info");
+            }
+         
+        });
+  
+      
+    });
+   
   };
 
   return (

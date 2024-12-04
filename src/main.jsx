@@ -7,6 +7,7 @@ import "./index.css";
 import router from "./Router/router";
 import AuthPrivated from "./Components/AuthPrivate/AuthPrivated";
 import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 

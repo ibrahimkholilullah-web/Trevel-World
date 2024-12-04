@@ -6,8 +6,6 @@ import Loding from '../../Router/Loding';
 const PrivatedRouter = ({children}) => {
     const {user, loding} = useContext(AuthProvider)
     const location = useLocation()
-    console.log(user)
-    console.log(loding)
     if(loding){
      return <Loding></Loding>
     }

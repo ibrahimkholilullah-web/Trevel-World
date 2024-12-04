@@ -14,7 +14,7 @@ const AddVisa = () => {
     const ageRestriction = form.ageRestriction.value;
     const fee = form.fee.value;
     const validity = form.validity.value;
-    const applicationMethod = form.applicationMethod.value;
+    const applicationMethod = form.application.value;
 
     // Collect checkbox values
     const requiredDocuments = Array.from(
@@ -51,13 +51,13 @@ const AddVisa = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen ">
-      <div className="my-4 w-2/3 bg-[#F1F5EB] rounded-lg border-2 border-amber-900 text-sm shadow-2xl p-8">
+      <div className="my-4 md:w-2/3 bg-[#F1F5EB] rounded-lg border-2 m-1 border-amber-900 text-sm shadow-2xl p-8">
         <h2 className="text-2xl font-bold text-center mb-6 text-gray-700">Add Visa</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Country Image and Name */}
-          <div className="flex items-center gap-5 justify-start">
-            <div className="w-1/2">
-              <label className="block font-medium mb-1">Country Image URL:</label>
+          <div className="md:flex items-center gap-5 justify-start  ">
+            <div className="md:w-1/2">
+              <label className="block font-medium mb-1 ">Country Image URL:</label>
               <input
                 type="url"
                 name="countryImage"
@@ -66,7 +66,7 @@ const AddVisa = () => {
                 required
               />
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <label className="block font-medium mb-1">Country Name:</label>
               <input
                 type="text"
@@ -80,7 +80,7 @@ const AddVisa = () => {
 
           {/* Visa Type and Processing Time */}
           <div className="flex justify-start items-center gap-5">
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <label className="block font-medium mb-1">Visa Type:</label>
               <select
                 name="visaType"
@@ -137,8 +137,8 @@ const AddVisa = () => {
           </div>
 
           {/* Age Restriction and Fee */}
-          <div className="flex justify-start items-center gap-5">
-            <div className="w-1/2">
+          <div className="md:flex justify-start items-center gap-5">
+            <div className="md:w-1/2">
               <label className="block font-medium mb-1">Age Restriction:</label>
               <input
                 type="number"
@@ -148,7 +148,7 @@ const AddVisa = () => {
                 required
               />
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <label className="block font-medium mb-1">Fee:</label>
               <input
                 type="number"
@@ -161,8 +161,8 @@ const AddVisa = () => {
           </div>
 
           {/* Validity and Application Method */}
-          <div className="flex justify-start items-center gap-5">
-            <div className="w-1/2">
+          <div className="md:flex justify-start items-center gap-5">
+            <div className="md:w-1/2">
               <label className="block font-medium mb-1">Validity:</label>
               <input
                 type="text"
@@ -172,15 +172,20 @@ const AddVisa = () => {
                 required
               />
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <label className="block font-medium mb-1">Application Method:</label>
-              <input
-                type="text"
-                name="applicationMethod"
-                className="input input-bordered w-full border-gray-300 focus:border-blue-500 rounded-lg"
-                placeholder="Enter application method"
+              <select
+                name="application"
+                className="select select-bordered w-full border-gray-300 focus:border-blue-500 rounded-lg"
                 required
-              />
+              >
+                <option value="">Select Method</option>
+                <option value="Online Application">Online Application</option>
+                <option value="In-Person Application at an Embassy/Consulate">In-Person Application at an Embassy/Consulate</option>
+                <option value="Visa Application Centers (VACs)">Visa Application Centers (VACs)</option>
+                <option value="On-Arrival Visa (VOA)">On-Arrival Visa (VOA)</option>
+              </select>
+        
             </div>
           </div>
 

@@ -16,12 +16,13 @@ function Login() {
         const form = e.target
         const email = form.email.value
         const password = form.password.value
-        console.log(email,password)
         signinWithUser(email,password)
         .then((result) => {
-            console.log(result.user)
+            navigate(location?.state?location.state :"/");
+            toast.success('SuccessFully  Your Login',{
+              position:"top-center"
+            })
             setUser(result.user)
-            navigate()
         })
         .catch(err => {
             console.log(err.code)
@@ -31,7 +32,6 @@ function Login() {
     }
     const handleForgatePassword = () =>{
       const email = emailRef.current.value
-      console.log(email)
      if(email){
       sendPasswordResetEmail(auth, email)
       .then(() =>{
@@ -45,9 +45,10 @@ function Login() {
     const signUpGoogle =() =>{
         googleSignUp()
         .then((result)=>{
-            console.log(result.user)
             setUser(result.user)
-            navigate(location?.state?location.state :"/");
+            toast.success('SuccessFully  Your Login Google',{
+              position:"top-center"
+            })
         })
         .catch(err => {
             console.log(err.code)

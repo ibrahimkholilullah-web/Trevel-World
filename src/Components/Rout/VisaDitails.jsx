@@ -1,27 +1,41 @@
 import React, { useContext, useState } from "react";
 import { AuthProvider } from "../AuthPrivate/AuthPrivated";
 import Navber from "../Component/Navber";
+import { useLoaderData } from "react-router-dom";
 
 const visaDitails = () => {
+  const data = useLoaderData() 
+  const {_id} = data
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const currentDate = new Date().toISOString().split("T")[0]; // Format as YYYY-MM-DD
   const {user} = useContext(AuthProvider)
   const handleSubmitVisaForm = (e) => {
     e.preventDefault();
-
     const form = e.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const fullName = `${firstName} ${lastName}`; // Correctly concatenate first and last name
+    
     const data = {
       email: form.email.value,
-      firstName: form.firstName.value,
-      lastName: form.lastName.value,
       appliedDate: form.appliedDate.value,
+      name: fullName,
       fee: form.fee.value,
     };
-
+    
     // Implement your database storage logic here
     console.log("Application Data: ", data);
     alert("Visa application submitted successfully!");
-
+     fetch(`http://localhost:4500/visa/${_id}`,{
+      method:"PUT",
+      headers:{
+        'content-type' : 'application/json'
+      },
+      body : JSON.stringify(data)
+     })
+     .then(res => res.json())
+     .then(data => {
+      console.log(data)
+     })
     // Close modal after submission
     setIsModalOpen(false);
   };
@@ -36,12 +50,12 @@ const visaDitails = () => {
   return (
     <div className="container mx-auto">
       <Navber></Navber>
-      <div className="flex items-center justify-center min-h-screen">
-      <div className="my-4 w-2/3 bg-[#F1F5EB] rounded-lg shadow-lg p-8">
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-700">Add Visa</h2>
-        <form onSubmit={handleSubmitVisaDetails} className="space-y-4">
+      <div className="flex items-center justify-center md:min-h-screen">
+      <div className="my-4 md:w-2/3 bg-[#F1F5EB] rounded-lg p-8 border-2 shadow-2xl ">
+        <h2 className="text-2xl font-bold text-center mb-6 text-gray-700 ">Add Visa</h2>
+        <form onSubmit={handleSubmitVisaDetails} className="space-y-4 flex justify-center items-center ">
           {/* AddVisa form fields (same as previous implementation) */}
-          <div className="flex justify-between">
+          <div className="mx-auto">
             <button
               type="button"
               onClick={() => setIsModalOpen(true)}
@@ -49,12 +63,7 @@ const visaDitails = () => {
             >
               Apply for the Visa
             </button>
-            <button
-              type="submit"
-              className="btn bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg py-2"
-            >
-              Add Visa
-            </button>
+            
           </div>
         </form>
       </div>
@@ -62,7 +71,7 @@ const visaDitails = () => {
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white rounded-lg p-6 w-1/3">
+          <div className="bg-white rounded-lg p-6 md:w-1/3">
             <h3 className="text-xl font-semibold mb-4 text-gray-700">
               Apply for the Visa
             </h3>
@@ -102,8 +111,7 @@ const visaDitails = () => {
                 <input
                   type="date"
                   name="appliedDate"
-                  value={currentDate}
-                  readOnly
+                  
                   className="input input-bordered w-full border-gray-300 rounded-lg bg-gray-100"
                 />
               </div>
