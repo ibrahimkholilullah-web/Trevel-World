@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LatesVisat = () => {
   const [latestVisas, setLatestVisas] = useState([]);
@@ -7,10 +7,11 @@ const LatesVisat = () => {
 
   // Fetch the latest visas from the backend
   useEffect(() => {
-    fetch("http://localhost:4500/visa?limit=6") // Assuming the backend supports a query parameter for limiting results
+    fetch("http://localhost:4500/visa") // Replace with your actual API endpoint
       .then((res) => res.json())
       .then((data) => {
-        setLatestVisas(data);
+        // Reverse the data to show the latest visas first
+        setLatestVisas(data.reverse());
       })
       .catch((err) => console.error(err));
   }, []);
@@ -24,7 +25,7 @@ const LatesVisat = () => {
 
         {/* Visa Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {latestVisas.map((visa) => (
+          {latestVisas.slice(0,6).map((visa) => (
             <div
               key={visa._id}
               className="bg-white rounded-lg shadow-lg p-4 flex flex-col justify-between"
@@ -51,7 +52,7 @@ const LatesVisat = () => {
                 Application Method: {visa.applicationMethod}
               </p>
               <button
-                onClick={() => navigate(`/visa-details/${visa._id}`)}
+                onClick={() => navigate(`/visaditails/${visa._id}`)}
                 className="btn bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg px-4 py-2 mt-4"
               >
                 See Details
@@ -62,12 +63,12 @@ const LatesVisat = () => {
 
         {/* "See All Visas" Button */}
         <div className="text-center mt-8">
-          <button
-            onClick={() => navigate("/allvisa")}
+          <Link
+            to="/allvisa"
             className="btn bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg px-6 py-3"
           >
             See All Visas
-          </button>
+          </Link>
         </div>
       </div>
     </section>

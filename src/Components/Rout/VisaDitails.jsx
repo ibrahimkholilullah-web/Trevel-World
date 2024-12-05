@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthProvider } from "../AuthPrivate/AuthPrivated";
 import Navber from "../Component/Navber";
 import { useLoaderData } from "react-router-dom";
+import Ditails from "./Ditails";
 
 const visaDitails = () => {
   const data = useLoaderData() 
@@ -17,28 +18,26 @@ const visaDitails = () => {
     
     const data = {
       email: form.email.value,
-      appliedDate: form.appliedDate.value,
+      date: form.appliedDate.value,
       name: fullName,
       fee: form.fee.value,
     };
     
     // Implement your database storage logic here
-    console.log("Application Data: ", data);
-    alert("Visa application submitted successfully!");
-     fetch(`http://localhost:4500/visa/${_id}`,{
-      method:"PUT",
-      headers:{
-        'content-type' : 'application/json'
+    console.log("Application Data: ", data,_id);
+    fetch(`http://localhost:4500/visa/${_id}/copy`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body : JSON.stringify(data)
-     })
-     .then(res => res.json())
-     .then(data => {
-      console.log(data)
-     })
-    // Close modal after submission
-    setIsModalOpen(false);
-  };
+      body: JSON.stringify(data),
+    })
+  .then(res => res.json())
+   .then(data => console.log(data))
+       setIsModalOpen(false);
+
+}
+
 
   const handleSubmitVisaDetails = (e) => {
     e.preventDefault();
@@ -51,11 +50,11 @@ const visaDitails = () => {
     <div className="container mx-auto">
       <Navber></Navber>
       <div className="flex items-center justify-center md:min-h-screen">
-      <div className="my-4 md:w-2/3 bg-[#F1F5EB] rounded-lg p-8 border-2 shadow-2xl ">
-        <h2 className="text-2xl font-bold text-center mb-6 text-gray-700 ">Add Visa</h2>
+      <div className="my-4 w-full bg-[#F1F5EB] rounded-lg p-2 border-2 shadow-2xl ">
+        <Ditails ditails={data} ></Ditails>
         <form onSubmit={handleSubmitVisaDetails} className="space-y-4 flex justify-center items-center ">
           {/* AddVisa form fields (same as previous implementation) */}
-          <div className="mx-auto">
+          <div className="">
             <button
               type="button"
               onClick={() => setIsModalOpen(true)}
@@ -67,7 +66,7 @@ const visaDitails = () => {
           </div>
         </form>
       </div>
-
+      
       {/* Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">

@@ -16,7 +16,7 @@ const VisaCard = ({visa}) => {
         <div>
             <div className="card sm:card-side bg-base-200 shadow-xl border">
                 <figure>
-                  <img className='md:w-96'
+                  <img className='md:w-96 md:h-[250px]'
                     src={countryImage}
                     alt="Movie" />
                 </figure>

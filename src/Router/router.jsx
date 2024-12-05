@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../App";
 import Root from "../Components/Root/Root";
 import Home from "../Components/Home";
 import Login from "../Components/Component/Login";
@@ -35,8 +34,9 @@ const router = createBrowserRouter([
                 loader : () => fetch('http://localhost:4500/visa')
             },
             {
-                path:'myvisaApplication',
-                element:<PrivatedRouter><MyVisaApplication></MyVisaApplication></PrivatedRouter>
+                path:'/myvisaApplication',
+                element:<PrivatedRouter><MyVisaApplication></MyVisaApplication></PrivatedRouter>,
+                loader : () => fetch('http://localhost:4500/myvisa')
             }
         ]
     },
