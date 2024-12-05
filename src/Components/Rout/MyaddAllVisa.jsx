@@ -92,7 +92,7 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 flex flex-col justify-between w-full">
+    <div className="bg-white rounded-lg shadow-lg p-2 border border-[#83CD20] flex flex-col justify-between w-full">
       <div>
         <img
           src={visa.countryImage}
@@ -115,7 +115,7 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
       <div className="mt-4 flex gap-4 justify-center items-center">
         <button
           onClick={() => handleUpdateClick(visa)}
-          className="btn bg-yellow-500 hover:bg-yellow-600 text-white font-bold rounded-lg px-4 py-2 w-full sm:w-auto"
+          className="btn bg-[#83CD20] hover:bg-yellow-600 text-white font-bold rounded-lg px-4 py-2 w-full sm:w-auto"
         >
           Update
         </button>

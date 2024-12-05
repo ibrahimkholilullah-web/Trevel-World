@@ -14,7 +14,7 @@ const VisaCard = ({visa}) => {
       requiredDocuments,_id} = visa
     return (
         <div>
-            <div className="card sm:card-side bg-base-200 shadow-xl border">
+            <div className="card sm:card-side bg-base-200 shadow-xl border border-[#83CD20] p-1">
                 <figure>
                   <img className='md:w-96 md:h-[250px]'
                     src={countryImage}

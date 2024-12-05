@@ -9,11 +9,13 @@ import VisaDitails from "../Components/Rout/VisaDitails";
 import PrivatedRouter from "../Components/Rout/PrivatedRouter";
 import MyVisaApplication from "../Components/Rout/MyVisaApplication";
 import MyAddedVisas from "../Components/Rout/MyAddedVisas";
+import Error from "../Components/Component/Error";
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Root></Root>,
+        errorElement:<Error></Error>,
         children:[
             {
                 path:'/',
@@ -50,7 +52,7 @@ const router = createBrowserRouter([
     },
     {
         path:'/visaditails/:id',
-        element:<VisaDitails></VisaDitails>,
+        element:<PrivatedRouter><VisaDitails></VisaDitails></PrivatedRouter>,
         loader: ({params}) => fetch(`http://localhost:4500/visa/${params.id}`)
     },
    

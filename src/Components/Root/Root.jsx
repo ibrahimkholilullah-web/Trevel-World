@@ -5,13 +5,15 @@ import Footer from '../Component/Footer';
 
 const Root = () => {
     return (
-        <div className='container mx-auto'>
+       <div className='bg-[#F1F5EB]'>
+         <div className='container mx-auto'>
             <Navber></Navber>
-            <div className="min-h-[calc(100vh-232px)]">
+            {/* <div className="min-h-[calc(100vh-232px)]">
             <Outlet></Outlet>
-            </div>
+            </div> */}
             <Footer></Footer>
         </div>
+       </div>
     );
 };
 

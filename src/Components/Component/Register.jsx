@@ -2,13 +2,14 @@ import React, { useContext, useState } from "react";
 import Navber from "./Navber";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthProvider } from "../AuthPrivate/AuthPrivated";
-import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
 
 function Register() {
    const {handleSignUpEmailandpassword,setUser,updateUser} = useContext(AuthProvider)
    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
    const [error, setError] = useState('')
+   const [passwordIcon, setPasswordIcon] = useState(false)
    const navogate = useNavigate()
     const handleRegister = e =>{
         e.preventDefault()
@@ -34,7 +35,7 @@ function Register() {
             })
         })
         .catch(err => {
-            console.log(err.code)
+            setError(err.code)
         })
 
     }
@@ -112,18 +113,23 @@ function Register() {
             </div>
 
             {/* Password Input */}
-            <div className="mb-4">
+            <div className="mb-4 relative" >
               <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="password">
                 Password
               </label>
               <input
-                type="password"
+                type={passwordIcon ? "text" :"password"}
                 required
                 name="password"
                 id="password"
                 placeholder="Enter your password"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
+              <button type="button" onClick={() => setPasswordIcon(!passwordIcon)} className=" absolute top-10 right-5 ">
+                {
+                  passwordIcon ? <FaEye></FaEye> : <FaEyeSlash></FaEyeSlash>
+                }
+              </button>
             </div>
 
             {/* Register Button */}
@@ -133,6 +139,11 @@ function Register() {
             >
               Register
             </button>
+            <p >
+              {
+                error && <p className="text-red-700 text-sm text-left py-2">{error}</p>
+              }
+            </p>
           </form>
 
           {/* Terms and Conditions */}
