@@ -7,32 +7,20 @@ const ExtraSectionTwo = () => {
       {/* Left Side - Images */}
       <div className="relative w-full lg:w-1/2 flex flex-col gap-6">
         {/* Background Image */}
-        <div className="rounded-lg overflow-hidden shadow-md border p-2 border-[#43A047]">
-          <img
-            src='https://wp.rrdevs.net/routex/wp-content/uploads/2024/10/about-4-img-1.png'
-            alt="Travel essentials"
-            className="w-full"
-          />
-        </div>
-        {/* Foreground Image */}
-        <div className="absolute top-10 left-10 rounded-lg overflow-hidden shadow-md border w-3/4 lg:w-1/2">
-          <img
-            src="https://wp.rrdevs.net/routex/wp-content/uploads/2024/10/about-img-1.png"
-            alt="Happy travelers"
-            className="w-full"
-          />
-        </div>
+        <iframe height={500} src="https://lottie.host/embed/d8d1f2d9-ff83-41e8-af17-f85d8e0b437e/0XG2DFLG57.lottie"></iframe>
         {/* Experience Box */}
-        <div className="bg-green-100 p-4 rounded-lg shadow-md flex items-center justify-center text-green-900 text-xl font-bold absolute -bottom-12 left-1/4 lg:left-20">
+        <div className="bg-green-100 p-4 rounded-lg shadow-md flex items-center justify-center text-green-900 text-xl font-bold absolute -bottom-6 left-1/4 lg:left-20">
           15+ <span className="text-sm ml-2">Years of Experience</span>
         </div>
       </div>
 
       {/* Right Side - Text Content */}
       <div className="w-full lg:w-1/2">
+        <div className=" flex  items-center">
         <h2 className="text-green-900 text-xl dark:text-white  font-medium uppercase mb-2">
           About Us
         </h2>
+        </div>
         <h1 className="text-green-900 dark:text-[#43A047]  text-3xl md:text-4xl font-bold mb-4">
           Welcome to Visa & Immigration Consultancy
         </h1>
