@@ -11,6 +11,8 @@ import MyVisaApplication from "../Components/Rout/MyVisaApplication";
 import MyAddedVisas from "../Components/Rout/MyAddedVisas";
 import Error from "../Components/Component/Error";
 import Toutorial from "../Components/All Visas/Toutorial";
+import StudentVisa from "../Components/All Visas/StudentVisa";
+import OffcialVisa from "../Components/All Visas/OffcialVisa";
 
 const router = createBrowserRouter([
     {
@@ -43,7 +45,17 @@ const router = createBrowserRouter([
             },
             {
                 path: "/Toutorial",
-                element:<Toutorial></Toutorial>,
+                element:<PrivatedRouter><Toutorial></Toutorial></PrivatedRouter>,
+                loader: () => fetch('http://localhost:4500/visa')
+            },
+            {
+                path:'/studentVisa',
+                element:<PrivatedRouter><StudentVisa></StudentVisa></PrivatedRouter>,
+                loader: () => fetch('http://localhost:4500/visa')
+            },
+            {
+                path:'/offcialVisa',
+                element:<PrivatedRouter><OffcialVisa></OffcialVisa></PrivatedRouter>,
                 loader: () => fetch('http://localhost:4500/visa')
             }
         ]

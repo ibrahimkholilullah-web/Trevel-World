@@ -32,6 +32,8 @@ const Navber = () => {
               <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                 <li><NavLink to="/allvisa">All Visa</NavLink></li>
                 <li><NavLink to="/Toutorial" >Tourist Visa</NavLink></li>
+                <li><NavLink to="/studentVisa" >Student Visa</NavLink></li>
+                <li><NavLink to="/offcialVisa" >Offcial Visa</NavLink></li>
               </ul>
             </li>
       <li><NavLink to="/myaddesVisas">My Addes Visas</NavLink></li>
@@ -60,13 +62,6 @@ const Navber = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal font-bold px-1 dark:text-white text-[#034833]">
           {data}
-          <div className="dropdown">
-            <div tabIndex={0} role="button" className=" m-1">Click</div>
-            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-              <li><a>Item 1</a></li>
-              <li><a>Item 2</a></li>
-            </ul>
-          </div>
         </ul>
        
       </div>
@@ -78,17 +73,15 @@ const Navber = () => {
           
            </button>
           {user ? (
-          <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img alt="User Avatar" className='border-2 p-[2px] rounded-full border-green-500' src={user.photoURL} />
-              </div>
-            </div>
-            <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-              <li><a>{user.displayName}</a></li>
-              <li onClick={signOut}><NavLink to="/">Logout</NavLink></li>
+            <div className="dropdown dropdown-hover">
+          <div tabIndex={0} role="button" className=""><img alt="User Avatar" className='w-10 h-10 rounded-full border-2 p-[2px] border-green-500' src={user.photoURL} />
+          </div>
+            <ul tabIndex={0} className="dropdown-content right-3 menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+            <li><a>{user.displayName}</a></li>
+            <li onClick={signOut}><NavLink to="/">Logout</NavLink></li>
             </ul>
           </div>
+
         ) : (
           <Link className="btn bg-[#83CD20] text-white dark:text-white rounded-xl text-sm" to="/login">Login</Link>
         )}

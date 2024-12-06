@@ -1,30 +1,3 @@
-// import React, { useState } from 'react';
-// import { useLoaderData } from 'react-router-dom';
-// import MyAddAllVisa from '../Rout/MyaddAllVisa';
-// import TouristCard from './TouristCard';
-
-// const Toutorial = () => {
-//     const loadCategory = useLoaderData()
-//     const touristVisa = "Tourist Visa"
-//     // const [touristVisa, setTouristVisa] = useState('Tourist Visa')
-//     const [visas, setVisas] = useState(filteredVisa)
-//     const filteredVisa = touristVisa === 'Tourist Visa' && loadCategory.filter((visa)=> visa.visaType === touristVisa)
-//     console.log(filteredVisa)
-//     return (
-//         <div>
-            
-//             {
-//                 filteredVisa.map(visa => (
-//                     <TouristCard key={visa._id} ></TouristCard>                   
-//                 ))
-//             }
-            
-//         </div>
-//     );
-// };
-
-// export default Toutorial;
-import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import TouristCard from './TouristCard';
 
