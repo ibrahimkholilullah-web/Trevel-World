@@ -4,8 +4,13 @@ import banner2 from "../../assets/banner3.png";
 import banner3 from "../../assets/banner2.jpg";
 import { Carousel, Typography, Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 const Banner = () => {
+  const [text] = useTypewriter({
+    words: ['Welcome to Our Agency','A smile is a welcomed','Sight that invites people in.'],
+    loop:0
+  })
   return (
     <div className="relative dark:bg-black p-2 border-[5px] border-green-800 dark:rounded-none dark:-mt-1 dark:border-black rounded-2xl">
       <Carousel className="rounded-xl">
@@ -19,8 +24,7 @@ const Banner = () => {
           <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/50">
             <div className=" px-4 md:px-10">
             <Typography className=" my-2 font-bold text-[#73AC27] w-64  text-center bg-[#3A3D41]/50 py-2 ">
-            Welcome to Our Agency
-
+                  <span><span>{text}</span><Cursor></Cursor></span>
                 </Typography>
               <Typography
                 variant="h1"

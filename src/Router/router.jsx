@@ -9,16 +9,15 @@ import VisaDitails from "../Components/Rout/VisaDitails";
 import PrivatedRouter from "../Components/Rout/PrivatedRouter";
 import MyVisaApplication from "../Components/Rout/MyVisaApplication";
 import MyAddedVisas from "../Components/Rout/MyAddedVisas";
-import Error from "../Components/Component/Error";
 import Toutorial from "../Components/All Visas/Toutorial";
 import StudentVisa from "../Components/All Visas/StudentVisa";
 import OffcialVisa from "../Components/All Visas/OffcialVisa";
+import App from "../App";
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Root></Root>,
-        errorElement:<Error></Error>,
         children:[
             {
                 path:'/',
@@ -34,7 +33,7 @@ const router = createBrowserRouter([
                 element:<PrivatedRouter><AddVisa></AddVisa></PrivatedRouter>
             },
             {
-                path:'myaddesVisas',
+                path:'/myaddesVisas',
                 element:<PrivatedRouter><MyAddedVisas></MyAddedVisas></PrivatedRouter>,
                 loader : () => fetch('http://localhost:4500/visa')
             },
@@ -54,7 +53,7 @@ const router = createBrowserRouter([
                 loader: () => fetch('http://localhost:4500/visa')
             },
             {
-                path:'/offcialVisa',
+                path:'/officialVisa',
                 element:<PrivatedRouter><OffcialVisa></OffcialVisa></PrivatedRouter>,
                 loader: () => fetch('http://localhost:4500/visa')
             }

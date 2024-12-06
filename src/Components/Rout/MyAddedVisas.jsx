@@ -8,7 +8,7 @@ const MyAddedVisas = () => {
 
     return (
         <div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+            <div className='grid my-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
                     visas.map((visa) => <MyAddAllVisa key={visa._id} setVisas={setVisas} visas={visas} visa={visa}></MyAddAllVisa>)
                 }

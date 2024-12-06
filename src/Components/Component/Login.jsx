@@ -106,7 +106,7 @@ function Login() {
               <button
                 type="button"
                 onClick={() => setPasswordIcon(!passwordIcon)}
-                className="absolute top-10 right-5"
+                className="absolute top-11 right-5"
               >
                 {passwordIcon ? <FaEye /> : <FaEyeSlash />}
               </button>

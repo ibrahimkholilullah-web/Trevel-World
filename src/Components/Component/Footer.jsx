@@ -8,7 +8,7 @@ import visa5 from "../../assets/visa5.webp"
 import visa6 from "../../assets/visa6.webp"
 const Footer = () => {
   return (
-    <footer className="bg-green-900 text-white py-12">
+    <footer className="bg-green-900 dark:bg-black text-white py-12">
       <div className="container mx-auto px-6 lg:px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         {/* About Company */}
         <div>

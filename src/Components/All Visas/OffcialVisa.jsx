@@ -6,11 +6,7 @@ const OffcialVisa = () => {
 
 
     const loadCategory = useLoaderData();
-    const offcialVisa = "Official Visa";
-    console.log(loadCategory)
-
-
-
+    const offcialVisa = "Official Visa"
     const filteredVisa = loadCategory.filter((visa) => visa.visaType === offcialVisa);
     console.log(filteredVisa)
 

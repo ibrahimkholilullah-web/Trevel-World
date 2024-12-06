@@ -3,7 +3,7 @@ import { FaPlaneDeparture, FaChartLine, FaGlobe } from "react-icons/fa";
 import visaone from "../../assets/about-img-2.png"
 const ExtraSectionTwo = () => {
   return (
-    <div className="container mx-auto dark:bg-black dark:text-white py-16 px-6 lg:px-20 flex flex-col lg:flex-row items-center gap-10">
+    <div className=" dark:bg-black dark:text-white px-6 lg:px-20 py-16 flex flex-col lg:flex-row items-center gap-10">
       {/* Left Side - Images */}
       <div className="relative w-full lg:w-1/2 flex flex-col gap-6">
         {/* Background Image */}
