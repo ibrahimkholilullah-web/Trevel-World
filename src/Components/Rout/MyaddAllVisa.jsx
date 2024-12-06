@@ -11,37 +11,30 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
     setIsModalOpen(true);
   };
 
-  const handleDeleteClick = (id) => { 
+  const handleDeleteClick = (id) => {
     Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
-  }).then((result) => {
-    if (result.isConfirmed) {
-      fetch(`http://localhost:4500/visa/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if(data.deletedCount){
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success"
-            });
-            const remainingData = visas.filter((visa) => visa._id !== id);
-            setVisas(remainingData);
-          }
-        
-  
-        });
-    }
-  });
-   
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:4500/visa/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              const remainingData = visas.filter((visa) => visa._id !== id);
+              setVisas(remainingData);
+            }
+          });
+      }
+    });
   };
 
   const handleSubmitUpdate = (e) => {
@@ -61,7 +54,7 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
       showDenyButton: true,
       showCancelButton: true,
       confirmButtonText: "Save",
-      denyButtonText: `Don't save`
+      denyButtonText: `Don't save`,
     }).then((result) => {
       fetch(`http://localhost:4500/visa/${_id}`, {
         method: "PATCH",
@@ -72,27 +65,22 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
       })
         .then((res) => res.json())
         .then((data) => {
-          /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-              Swal.fire("Saved!", "", "success");
-              const updatedVisas = visas.map((v) =>
-                v._id === _id ? { ...v, ...updatedVisa } : v
-              );
-              setVisas(updatedVisas);
-              setIsModalOpen(false);
-            } else if (result.isDenied) {
-              Swal.fire("Changes are not saved", "", "info");
-            }
-         
+          if (result.isConfirmed) {
+            Swal.fire("Saved!", "", "success");
+            const updatedVisas = visas.map((v) =>
+              v._id === _id ? { ...v, ...updatedVisa } : v
+            );
+            setVisas(updatedVisas);
+            setIsModalOpen(false);
+          } else if (result.isDenied) {
+            Swal.fire("Changes are not saved", "", "info");
+          }
         });
-  
-      
     });
-   
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-2 border border-[#83CD20] flex flex-col justify-between w-full">
+    <div className="bg-white rounded-lg shadow-lg p-4 border border-[#83CD20] flex flex-col justify-between w-full">
       <div>
         <img
           src={visa.countryImage}
@@ -112,7 +100,7 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
           Application Method: {visa.applicationMethod}
         </p>
       </div>
-      <div className="mt-4 flex gap-4 justify-center items-center">
+      <div className="mt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
         <button
           onClick={() => handleUpdateClick(visa)}
           className="btn bg-[#83CD20] hover:bg-yellow-600 text-white font-bold rounded-lg px-4 py-2 w-full sm:w-auto"
@@ -121,15 +109,15 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
         </button>
         <button
           onClick={() => handleDeleteClick(visa._id)}
-          className="btn text-black border-2 bg-red-500 font-bold rounded-lg px-4 py-2 w-full sm:w-auto"
+          className="btn bg-red-500 text-white hover:bg-red-600 font-bold rounded-lg px-4 py-2 w-full sm:w-auto"
         >
           Delete
         </button>
       </div>
 
       {isModalOpen && selectedVisa && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white rounded-lg p-6 my-4 w-full max-w-sm md:max-w-md lg:max-w-lg">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-lg p-6 w-full max-w-sm md:max-w-md lg:max-w-lg">
             <h3 className="text-xl font-semibold mb-4 text-gray-700">
               Update Visa Information
             </h3>

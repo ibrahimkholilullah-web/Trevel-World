@@ -27,7 +27,13 @@ const Navber = () => {
     <>
       <li><NavLink to="/">Home</NavLink></li>
       <li><NavLink to="/addvisa">Add Visas</NavLink></li>
-      <li><NavLink to="/allvisa">All Visas</NavLink></li>
+      <li className="dropdown dropdown-hover">
+              <div tabIndex={0} role="button" className="">All Visas</div>
+              <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                <li><NavLink to="/allvisa">All Visa</NavLink></li>
+                <li><NavLink to="/Toutorial" >Tourist Visa</NavLink></li>
+              </ul>
+            </li>
       <li><NavLink to="/myaddesVisas">My Addes Visas</NavLink></li>
       <li><NavLink to="/myvisaApplication">My Visa Application</NavLink></li>
     </>
@@ -43,8 +49,9 @@ const Navber = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
             </svg>
           </div>
-          <ul tabIndex={0} className="menu header-font dark:text-white text-[#034833] menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+          <ul tabIndex={0} className="menu header-font items-center dark:text-white text-[#034833] menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
             {data}
+          
           </ul>
         </div>
         <img className="w-10 rounded-full h-10 border border-green-400" src={bannerImg} alt="Banner" />
@@ -53,6 +60,13 @@ const Navber = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal font-bold px-1 dark:text-white text-[#034833]">
           {data}
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className=" m-1">Click</div>
+            <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+              <li><a>Item 1</a></li>
+              <li><a>Item 2</a></li>
+            </ul>
+          </div>
         </ul>
        
       </div>
@@ -61,6 +75,7 @@ const Navber = () => {
             {
               darkMode ? <MdOutlineLightMode /> : <MdDarkMode /> 
             }
+          
            </button>
           {user ? (
           <div className="dropdown dropdown-end">
