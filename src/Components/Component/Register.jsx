@@ -4,9 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthProvider } from "../AuthPrivate/AuthPrivated";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import { FcGoogle } from "react-icons/fc";
 
 function Register() {
-   const {handleSignUpEmailandpassword,setUser,updateUser} = useContext(AuthProvider)
+   const {handleSignUpEmailandpassword,setUser,updateUser,googleSignUp} = useContext(AuthProvider)
    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
    const [error, setError] = useState('')
    const [passwordIcon, setPasswordIcon] = useState(false)
@@ -39,6 +40,19 @@ function Register() {
         })
 
     }
+    const signUpGoogle = () => {
+      googleSignUp()
+        .then((result) => {
+          setUser(result.user);
+          toast.success("Successfully logged in with Google", {
+            position: "top-center",
+          });
+          navigate(location?.state ? location.state : "/");
+        })
+        .catch((err) => {
+          serError(err.code);
+        });
+    };
   return (
   <div className="container mx-auto">
     <Navber></Navber>
@@ -50,8 +64,7 @@ function Register() {
             Online Event Registration Form
           </h2>
           <p className="text-sm md:text-base mb-6 text-center lg:text-left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
+          Log in to your VISA Navigator account to access personalized visa application features. 
           </p>
           <div className="text-center lg:text-left">
             <Link to="/login" className="bg-white text-purple-700 font-semibold py-2 px-6 rounded-lg shadow hover:bg-gray-200 transition">
@@ -139,6 +152,12 @@ function Register() {
             >
               Register
             </button>
+            <button
+            onClick={signUpGoogle}
+            className="btn border-black rounded-lg border w-full my-2"
+          >
+          <FcGoogle size={25} />          Google Sign-Up
+          </button>
             <p >
               {
                 error && <p className="text-red-700 text-sm text-left py-2">{error}</p>

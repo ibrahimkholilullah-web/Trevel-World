@@ -13,11 +13,13 @@ import Toutorial from "../Components/All Visas/Toutorial";
 import StudentVisa from "../Components/All Visas/StudentVisa";
 import OffcialVisa from "../Components/All Visas/OffcialVisa";
 import App from "../App";
+import Error from "../Components/Component/Error";
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<Root></Root>,
+        errorElement: <Error></Error>,
         children:[
             {
                 path:'/',
@@ -26,7 +28,7 @@ const router = createBrowserRouter([
             {
                 path:'/allvisa',
                 element:<PrivatedRouter><Allvisa></Allvisa></PrivatedRouter>,
-                loader: () => fetch('http://localhost:4500/visa')
+                loader: () => fetch('https://b10-a10-projects-server.vercel.app/visa')
             },
             {
                 path:'/addvisa',
@@ -35,27 +37,27 @@ const router = createBrowserRouter([
             {
                 path:'/myaddesVisas',
                 element:<PrivatedRouter><MyAddedVisas></MyAddedVisas></PrivatedRouter>,
-                loader : () => fetch('http://localhost:4500/visa')
+                loader : () => fetch('https://b10-a10-projects-server.vercel.app/visa')
             },
             {
                 path:'/myvisaApplication',
                 element:<PrivatedRouter><MyVisaApplication></MyVisaApplication></PrivatedRouter>,
-                loader : () => fetch('http://localhost:4500/myvisa')
+                loader : () => fetch('https://b10-a10-projects-server.vercel.app/myvisa')
             },
             {
                 path: "/Toutorial",
                 element:<PrivatedRouter><Toutorial></Toutorial></PrivatedRouter>,
-                loader: () => fetch('http://localhost:4500/visa')
+                loader: () => fetch('https://b10-a10-projects-server.vercel.app/visa')
             },
             {
                 path:'/studentVisa',
                 element:<PrivatedRouter><StudentVisa></StudentVisa></PrivatedRouter>,
-                loader: () => fetch('http://localhost:4500/visa')
+                loader: () => fetch('https://b10-a10-projects-server.vercel.app/visa')
             },
             {
                 path:'/officialVisa',
                 element:<PrivatedRouter><OffcialVisa></OffcialVisa></PrivatedRouter>,
-                loader: () => fetch('http://localhost:4500/visa')
+                loader: () => fetch('https://b10-a10-projects-server.vercel.app/visa')
             }
         ]
     },
@@ -70,7 +72,7 @@ const router = createBrowserRouter([
     {
         path:'/visaditails/:id',
         element:<PrivatedRouter><VisaDitails></VisaDitails></PrivatedRouter>,
-        loader: ({params}) => fetch(`http://localhost:4500/visa/${params.id}`)
+        loader: ({params}) => fetch(`https://b10-a10-projects-server.vercel.app/visa/${params.id}`)
     },
    
 ])

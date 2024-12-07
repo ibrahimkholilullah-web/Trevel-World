@@ -4,6 +4,9 @@ import { AuthProvider } from '../AuthPrivate/AuthPrivated';
 import bannerImg from '../../assets/banner.png';
 import { toast } from 'react-toastify';
 import { MdDarkMode, MdOutlineLightMode } from 'react-icons/md';
+import { CiLogin } from 'react-icons/ci';
+import { IoHomeOutline } from 'react-icons/io5';
+import { FaAngleDoubleDown } from 'react-icons/fa';
 
 const Navber = ({ darkMode, darkModeToggle }) => {
   const navigate = useNavigate();
@@ -35,7 +38,7 @@ const Navber = ({ darkMode, darkModeToggle }) => {
             }`
           }
         >
-          Home
+         <IoHomeOutline /> Home 
         </NavLink>
       </li>
       <li>
@@ -54,7 +57,7 @@ const Navber = ({ darkMode, darkModeToggle }) => {
       </li>
       <li className="dropdown dropdown-hover relative">
         <div tabIndex={0} role="button" className="px-4 py-2 hover:text-green-500">
-          All Visas
+          All Visas <FaAngleDoubleDown />
         </div>
         <ul className="dropdown-content border-2 mt-20 md:mt-0 dark:border-[#43A047] dark:bg-black absolute right-0 bg-base-100 rounded-box z-10 w-36 md:w-44 p-2 shadow">
           <li>
@@ -68,7 +71,7 @@ const Navber = ({ darkMode, darkModeToggle }) => {
                 }`
               }
             >
-              All Visa
+              All Visa 
             </NavLink>
           </li>
           <li>
@@ -177,7 +180,7 @@ const Navber = ({ darkMode, darkModeToggle }) => {
               {menuItems}
             </ul>
           </div>
-          <img className="w-10 rounded-full h-10 border border-green-400" src={bannerImg} alt="Banner" />
+          <img className="w-10 hidden md:block rounded-full h-10 border border-green-400" src={bannerImg} alt="Banner" />
           <Link to="/" className="btn btn-ghost text-lg md:text-2xl">
             Travel World
           </Link>
@@ -215,9 +218,15 @@ const Navber = ({ darkMode, darkModeToggle }) => {
               </ul>
             </div>
           ) : (
-            <Link className="btn bg-[#83CD20] text-white dark:text-white rounded-xl text-sm" to="/login">
-              Login
+           <div>
+             <Link className=" inline-flex items-center p-2 text-black border-[#43A047] border px-2 m-2 dark:text-white  rounded-xl text-sm" to="/login">
+              Login <CiLogin size={10} />
             </Link>
+             <Link className=" inline-flex items-center p-2 text-black border-[#43A047] border px-2 dark:text-white  rounded-xl text-sm" to="/register">
+              Sing-Up <CiLogin size={10} />
+            </Link>
+           
+           </div>
           )}
         </div>
       </div>

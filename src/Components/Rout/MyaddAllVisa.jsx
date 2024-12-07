@@ -22,7 +22,7 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4500/visa/${id}`, {
+        fetch(`https://b10-a10-projects-server.vercel.app/visa/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -56,7 +56,7 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
       confirmButtonText: "Save",
       denyButtonText: `Don't save`,
     }).then((result) => {
-      fetch(`http://localhost:4500/visa/${_id}`, {
+      fetch(`https://b10-a10-projects-server.vercel.app/visa/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -87,19 +87,21 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
           alt={visa.countryName}
           className="w-full h-60 object-cover rounded-lg mb-4"
         />
-        <div className="p-4"> 
-        <h3 className="text-lg font-semibold dark:text-[#43A047] text-gray-800 mb-2">
-          {visa.countryName}
-        </h3>
-        <p className="text-sm text-[#034833] mb-1">Visa Type: {visa.visaType}</p>
-        <p className="text-sm text-[#034833] mb-1">
-          Processing Time: {visa.processingTime}
-        </p>
-        <p className="text-sm text-[#034833] mb-1">Fee: ${visa.fee}</p>
-        <p className="text-sm text-[#034833] mb-1">Validity: {visa.validity}</p>
-        <p className="text-sm text-[#034833]">
-          Application Method: {visa.applicationMethod}
-        </p>
+        <div className="p-4">
+          <h3 className="text-lg font-semibold dark:text-[#43A047] text-gray-800 mb-2">
+            {visa.countryName}
+          </h3>
+          <p className="text-sm text-[#034833] mb-1">
+            Visa Type: {visa.visaType}
+          </p>
+          <p className="text-sm text-[#034833] mb-1">
+            Processing Time: {visa.processingTime}
+          </p>
+          <p className="text-sm text-[#034833] mb-1">Fee: ${visa.fee}</p>
+          <p className="text-sm text-[#034833] mb-1">Validity: {visa.validity}</p>
+          <p className="text-sm text-[#034833]">
+            Application Method: {visa.applicationMethod}
+          </p>
         </div>
       </div>
       <div className="mt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">

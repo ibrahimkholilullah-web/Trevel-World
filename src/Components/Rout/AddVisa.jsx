@@ -35,7 +35,7 @@ const AddVisa = () => {
       requiredDocuments,
     };
     
-    fetch('http://localhost:4500/visa',{
+    fetch('https://b10-a10-projects-server.vercel.app/visa',{
         method:'POST',
         headers:{
             'content-type' : 'application/json'
@@ -79,7 +79,7 @@ const AddVisa = () => {
           </div>
 
           {/* Visa Type and Processing Time */}
-          <div className="flex justify-start items-center gap-5">
+          <div className="md:flex justify-start items-center gap-5">
             <div className="md:w-1/2">
               <label className="block font-medium mb-1 dark:text-white ">Visa Type:</label>
               <select
@@ -93,7 +93,7 @@ const AddVisa = () => {
                 <option value="Official Visa">Official Visa</option>
               </select>
             </div>
-            <div className="w-1/2">
+            <div className="md:w-1/2">
               <label className="block font-medium mb-1 dark:text-white ">Processing Time:</label>
               <input
                 type="text"
@@ -182,7 +182,7 @@ const AddVisa = () => {
               >
                 <option value="">Select Method</option>
                 <option value="Online Application">Online Application</option>
-                <option value="In-Person Application at an Embassy/Consulate">In-Person Application at an Embassy/Consulate</option>
+                <option value="In-Person Application at an Embassy/Consulate">In-Person Application at an E/C .</option>
                 <option value="Visa Application Centers (VACs)">Visa Application Centers (VACs)</option>
                 <option value="On-Arrival Visa (VOA)">On-Arrival Visa (VOA)</option>
               </select>

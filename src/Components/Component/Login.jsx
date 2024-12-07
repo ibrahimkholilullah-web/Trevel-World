@@ -7,6 +7,7 @@ import { auth } from "../AuthPrivate/firebase.config";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import bgImg from "../../assets/banner3.png"
+import { FcGoogle } from "react-icons/fc";
 
 function Login() {
   const { signinWithUser, googleSignUp, setUser } = useContext(AuthProvider);
@@ -125,7 +126,7 @@ function Login() {
             onClick={signUpGoogle}
             className="btn border-black rounded-lg border w-full my-2"
           >
-            Google Sign-Up
+          <FcGoogle size={30} />          Google Sign-Up
           </button>
 
           {error && <p className="text-red-700 text-sm text-left">{error}</p>}

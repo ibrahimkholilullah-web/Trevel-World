@@ -7,7 +7,7 @@ const LatesVisat = () => {
 
   // Fetch the latest visas from the backend
   useEffect(() => {
-    fetch("http://localhost:4500/visa") // Replace with your actual API endpoint
+    fetch("https://b10-a10-projects-server.vercel.app/visa") // Replace with your actual API endpoint
       .then((res) => res.json())
       .then((data) => {
         // Reverse the data to show the latest visas first

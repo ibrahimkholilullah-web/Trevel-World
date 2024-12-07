@@ -5,11 +5,11 @@ const ExtraSectionTwo = () => {
   return (
     <div className=" dark:bg-black dark:text-white px-6 lg:px-20 py-16 flex flex-col lg:flex-row items-center gap-10">
       {/* Left Side - Images */}
-      <div className="relative w-full lg:w-1/2 flex flex-col gap-6">
+      <div className="relative w-full lg:w-1/2 flex flex-col md:gap-6">
         {/* Background Image */}
         <iframe height={500} src="https://lottie.host/embed/d8d1f2d9-ff83-41e8-af17-f85d8e0b437e/0XG2DFLG57.lottie"></iframe>
         {/* Experience Box */}
-        <div className="bg-green-100 p-4 rounded-lg shadow-md flex items-center justify-center text-green-900 text-xl font-bold absolute -bottom-6 left-1/4 lg:left-20">
+        <div className="bg-green-100 p-4 rounded-lg shadow-md flex items-center justify-center text-green-900 text-xl font-bold absolute md:-bottom-6 left-1/4 lg:left-20">
           15+ <span className="text-sm ml-2">Years of Experience</span>
         </div>
       </div>
@@ -60,8 +60,6 @@ const ExtraSectionTwo = () => {
           </div>
         </div>
 
-        {/* Read More Button */}
-       
       </div>
     </div>
   );

@@ -28,7 +28,7 @@ const MyVisaCard = ({ visa, setMyvisa, myvisa }) => {
       confirmButtonText: "Yes, Cancel it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4500/myvisa/${id}`, {
+        fetch(`https://b10-a10-projects-server.vercel.app/myvisa/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

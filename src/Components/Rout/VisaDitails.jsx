@@ -26,7 +26,7 @@ const visaDitails = () => {
     
     // Implement your database storage logic here
     console.log("Application Data: ", data,_id);
-    fetch(`http://localhost:4500/visa/${_id}/copy`, {
+    fetch(`https://b10-a10-projects-server.vercel.app/visa/${_id}/copy`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

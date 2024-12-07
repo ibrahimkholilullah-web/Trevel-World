@@ -7,7 +7,7 @@ const MyVisaApplication = () => {
     const [myvisa, setMyvisa] = useState(data)
     const [search, setSecrch] =  useState('')
     useEffect(()=>{
-        fetch(`http://localhost:4500/myvisa?searchParams=${search}`)
+        fetch(`https://b10-a10-projects-server.vercel.app/myvisa?searchParams=${search}`)
         .then(res => res.json())
         .then((data) => {
             setMyvisa(data)
