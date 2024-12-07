@@ -9,8 +9,8 @@ const Toutorial = () => {
     const filteredVisa = loadCategory.filter((visa) => visa.visaType === touristVisa);
 
     return (
-        <div>
-            <h1 className='text-center text-2xl font-bold text-[] my-3'>Tourist Visa</h1>
+        <div className='dark:bg-black p-4'>
+            <h1 className='text-center text-2xl font-bold text-[] dark:my-0 dark:text-white my-3'>Tourist Visa</h1>
 
             <TouristCard filteredVisa={filteredVisa}></TouristCard>
         </div>

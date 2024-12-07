@@ -3,6 +3,7 @@ import { AuthProvider } from "../AuthPrivate/AuthPrivated";
 import Navber from "../Component/Navber";
 import { useLoaderData } from "react-router-dom";
 import Ditails from "./Ditails";
+import { toast } from "react-toastify";
 
 const visaDitails = () => {
   const data = useLoaderData() 
@@ -35,6 +36,9 @@ const visaDitails = () => {
   .then(res => res.json())
    .then(data => console.log(data))
        setIsModalOpen(false);
+       toast.success('Visa details added successfully!',{
+        position:'top-center'
+       })
 
 }
 
@@ -43,7 +47,6 @@ const visaDitails = () => {
     e.preventDefault();
 
     // Collect and process AddVisa form data (similar to before)
-    alert("Visa details added successfully!");
   };
 
   return (

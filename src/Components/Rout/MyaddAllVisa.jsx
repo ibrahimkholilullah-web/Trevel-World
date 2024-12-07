@@ -80,14 +80,15 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 border border-[#83CD20] flex flex-col justify-between w-full">
+    <div className="bg-white rounded-lg shadow-lg dark:bg-black p-1 border border-[#83CD20] flex flex-col justify-between w-full">
       <div>
         <img
           src={visa.countryImage}
           alt={visa.countryName}
           className="w-full h-60 object-cover rounded-lg mb-4"
         />
-        <h3 className="text-lg font-semibold text-gray-800 mb-2">
+        <div className="p-4"> 
+        <h3 className="text-lg font-semibold dark:text-[#43A047] text-gray-800 mb-2">
           {visa.countryName}
         </h3>
         <p className="text-sm text-[#034833] mb-1">Visa Type: {visa.visaType}</p>
@@ -99,6 +100,7 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
         <p className="text-sm text-[#034833]">
           Application Method: {visa.applicationMethod}
         </p>
+        </div>
       </div>
       <div className="mt-4 flex flex-col sm:flex-row gap-4 justify-center items-center">
         <button
@@ -117,7 +119,7 @@ const MyAddAllVisa = ({ visa, setVisas, visas }) => {
 
       {isModalOpen && selectedVisa && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg p-6 w-full max-w-sm md:max-w-md lg:max-w-lg">
+          <div className="bg-white dark:bg-black dark:border-[#43A047] dark:border rounded-lg p-6 w-full max-w-sm md:max-w-md lg:max-w-lg">
             <h3 className="text-xl font-semibold mb-4 text-gray-700">
               Update Visa Information
             </h3>

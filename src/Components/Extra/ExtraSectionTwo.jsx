@@ -61,10 +61,7 @@ const ExtraSectionTwo = () => {
         </div>
 
         {/* Read More Button */}
-        <button className="mt-8 bg-lime-500 dark:bg-black dark:border  dark:text-[#43A047]  text-white py-2 px-6 rounded-lg font-medium flex items-center hover:bg-lime-600">
-          Read More
-          <span className="ml-2">&rarr;</span>
-        </button>
+       
       </div>
     </div>
   );

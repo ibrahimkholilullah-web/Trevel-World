@@ -14,13 +14,13 @@ const VisaCard = ({visa}) => {
       requiredDocuments,_id} = visa
     return (
         <div>
-            <div className="card sm:card-side bg-base-200 shadow-xl border border-[#83CD20] p-1">
-                <figure>
-                  <img className='md:w-96 md:h-[250px]'
+            <div className=" p-4 md:h-[400px] items-center gap-5 bg-base-200 shadow-xl border border-[#83CD20] rounded-xl ">
+                <div >
+                <img className=' mx-auto h-40 rounded-full w-40 border border-[#83CD20] p-1 '
                     src={countryImage}
                     alt="Movie" />
-                </figure>
-                <div className="card-body md:w-60">
+                </div>
+                <div className=" flex-col *:mb-2 ">
                   <h2 className="md:card-title text-lg">{countryName}</h2>
                   <p className='m-0 p-0 text-[12px]'>{visaType}</p>
                   <p className='m-0 p-0 text-[12px]'>{description}</p>

@@ -47,14 +47,7 @@ const Banner = () => {
               alteration in some form, by injected hum randomised words which <br /> don't slightly
               but the majority have suffered
               </Typography>
-              <div className="flex justify-center gap-4">
-                <Link className="btn " to='register' size="lg" color="white">
-                  Explore
-                </Link>
-                <Button size="lg" color="white" variant="text">
-                  Gallery
-                </Button>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -66,31 +59,23 @@ const Banner = () => {
             alt="image 2"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/50">
+          <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
             <div className="text-left px-4 md:px-10">
               <Typography
                 variant="h1"
                 color="white"
-                className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+                className="mb-4 text-2xl  sm:text-3xl md:text-4xl lg:text-5xl"
               >
-                Nature's Serenity
-              </Typography>
+                Your Trusted Guide to Global <br /> Visa Applications </Typography>
               <Typography
                 variant="lead"
                 color="white"
                 className="mb-8 opacity-80 text-sm sm:text-base md:text-lg"
               >
-                Feel the tranquility of pristine landscapes and immerse yourself
-                in the wonders of the natural world.
+                 Simplify your journey with VISA NAVIGATOR. Access detailed visa <br />
+                  information, manage applications effortlessly, and explore <br />
+                   the world with confidence.
               </Typography>
-              <div className="flex gap-4">
-                <Button size="lg" color="white">
-                  Explore
-                </Button>
-                <Button size="lg" color="white" variant="text">
-                  Gallery
-                </Button>
-              </div>
             </div>
           </div>
         </div>
@@ -109,24 +94,18 @@ const Banner = () => {
                 color="white"
                 className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
               >
-                Adventure Awaits
+              Streamlining Visas for Global Travelers
               </Typography>
               <Typography
                 variant="lead"
                 color="white"
                 className="mb-8 opacity-80 text-sm sm:text-base md:text-lg"
               >
-                Embark on thrilling adventures in breathtaking destinations
-                across the globe.
+                VISA NAVIGATOR offers comprehensive visa solutions, <br />
+                 tailored guidance, and a seamless application <br />
+                  process to help you navigate international <br />
+                   borders with ease.
               </Typography>
-              <div className="flex justify-end gap-4">
-                <Button size="lg" color="white">
-                  Explore
-                </Button>
-                <Button size="lg" color="white" variant="text">
-                  Gallery
-                </Button>
-              </div>
             </div>
           </div>
         </div>

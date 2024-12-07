@@ -14,7 +14,7 @@ const MyVisaApplication = () => {
         })
     },[search])
     return (
-        <div className='py-4'> 
+        <div className='py-4 dark:bg-black p-4'> 
         <div className='flex justify-between items-center my-2'>
             <div></div>
             <div>

@@ -13,8 +13,8 @@ const StudentVisa = () => {
     console.log(filteredVisa)
 
     return (
-        <div>
-            <h1 className='text-center text-2xl font-bold text-[] my-3'>Student Visa</h1>
+        <div className='dark:bg-black dark:text-white p-4'>
+            <h1 className='text-center text-2xl font-bold text-[] dark:my-0 my-3'>Student Visa</h1>
 
             <TouristCard filteredVisa={filteredVisa}></TouristCard>
         </div>

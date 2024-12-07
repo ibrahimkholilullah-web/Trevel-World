@@ -129,6 +129,7 @@ const AddVisa = () => {
           <div>
             <label className="block font-medium mb-1 dark:text-white ">Description:</label>
             <textarea
+            maxLength={200}
               name="description"
               className="textarea textarea-bordered w-full border-gray-300 focus:border-blue-500 rounded-lg"
               placeholder="Enter description"

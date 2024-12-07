@@ -64,13 +64,11 @@ const LatesVisat = () => {
         </div>
 
         {/* "See All Visas" Button */}
-        <div className="text-center mt-8">
-          <Link
-            to="/allvisa"
-            className="btn bg-green-500 hover:bg-green-600 dark:text-black text-white font-bold rounded-lg px-6 py-3"
-          >
-            See All Visas
-          </Link>
+        <div className=" mt-8">
+        <Link   to="/allvisa" className="mt-8 bg-lime-500 dark:bg-black dark:border  dark:text-[#43A047]  text-white py-2 px-6 rounded-lg font-medium flex items-center hover:bg-lime-600 w-40 ">
+          Read More
+          <span className="ml-2">&rarr;</span>
+        </Link>
         </div>
       </div>
     </section>

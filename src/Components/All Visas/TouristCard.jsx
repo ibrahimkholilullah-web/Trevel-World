@@ -13,7 +13,7 @@ const TouristCard = ({filteredVisa}) => {
                 {visas.map((visa) => <VisaCard key={visa._id} visa={visa} />)}  </div>
            ):(
            <>
-           <img src={noData} className='md:w-2/3 mx-auto md:h-[80vh] border-2 border-[#1B5E20] p-1 rounded-xl' alt="" />
+           <img src={noData} className='md:w-2/3 mx-auto border-2 border-[#1B5E20] p-1 rounded-xl' alt="" />
             <p className='text-center'>No Visa here</p>
            </>
            )}
