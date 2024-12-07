@@ -1,8 +1,20 @@
-# React + Vite
+# Web Site Name 
+Travel World
+# Web site URL
+https://b10-a10-projects.web.app/
+# Include a minimum of five bullet points to feature your website.
+Navber ভিতরে পাঁচটি পাথ রয়েছে Home ব্যতীত বাকি সবগুলো পাত কিংবা রাউট ইউজার Login করা ছাড়া রাউটের ডাটা ব্যবহার করতে পারবে না এবং হোমপেজ এর মাঝে একটি ব্যানার কিংবা স্লাইডার রাখা হয়েছে তার নিচে Extra সেকশন রাখা হয়েছে।  এর নিচে লিস্টেড ভিসা গুলো আছে। এবং তার নিচে আরেকটি এক্সট্রা সেকশন রাখা হয়েছে এবং তার নিচে ফুটার রাখা হয়েছে। 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. আমাদের এই প্রজেক্টটা এর জন্য firebase use করা হয়েছে Data স্টোর করার জন্য bongodb বিভিন্ন এন পি এম ফ্রেমওয়ার্ক করা হয়েছে কিছু এক্সট্রা সেকশন এড করা হয়েছে। npm এর কিছু ফ্রেমওয়ার্ক আমরা ব্যবহার করেছি যেমন।
+1. React-simple-typewriter
+2. Lottie React 
+3. react icons
 
-Currently, two official plugins are available:
+2. এড ভিসাতে ক্লিক করলে Add Visas রাউটে নিয়ে যাবে এবং সেখানে অনেকগুলো তথ্যের মাধ্যমে একটি ভিসা তৈরি করা হবে এবং সেই home,my added visas দেখানো হবে। 
+3. All Visas রাউডি গেলে সেখানে আমাদেরকে চারটা রাউট দেখাবে এবং সেখানে প্রত্যেকটা Visaer ক্যাটাগরি অনুযায়ী আলাদা রাখা আছে এবং সেখানে ক্লিক করা হয় তাহলে তাকে ওই Visa ক্যাটাগর অনুযায়ী তাকে সমস্ত visa দেখাবে।  
+4. my added visas এই রাউটে গেলে আমি যে বিষয়গুলো তৈরি করেছি এ সমস্ত বিষ আমাকে দেখাবে প্রত্যেকটি ভিসা ডিলিট করার জন্য একটা বাটন রাখা হয়েছে আবডেট করার জন্য আরেকটা বাটন রাখা হয়েছে আমরা পরবর্তীতে ডিলিট এবং আপডেট দুইটাই করতে পারব। 
+5. My visa Application এই রাউটে গেলে আমরা নিজে যে ভিসা করার জন্য আবেদন করেছি সেখানে শো করবে এবং যদি আমি চাই যে আমি কোন একটা ভিসা ক্যানসেল করব হলে আমি সেটা ক্যানসেল বাটনে ক্লিক করলে সেটা ক্যান্সেল হয়ে যাবে। এই রাউটে সার্চ ইনপুট রাখা হয়েছে এখানে আমি যেই দেশগুলো এড করেছি বলুন নাম লিখে আমরা সার্চ করতে পারব কে পারবো। 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Explore this package and implement 
+1.Lottie React 
+2.React-simple-typewriter
