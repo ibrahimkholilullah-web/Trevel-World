@@ -50,10 +50,10 @@ function Login() {
     googleSignUp()
       .then((result) => {
         setUser(result.user);
+        navigate("/")
         toast.success("Successfully logged in with Google", {
           position: "top-center",
         });
-        navigate(location?.state ? location.state : "/");
       })
       .catch((err) => {
         serError(err.code);

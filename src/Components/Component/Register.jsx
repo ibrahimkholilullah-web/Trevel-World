@@ -7,9 +7,9 @@ import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 
 function Register() {
+  const [error, setError] = useState('')
    const {handleSignUpEmailandpassword,setUser,updateUser,googleSignUp} = useContext(AuthProvider)
    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-   const [error, setError] = useState('')
    const [passwordIcon, setPasswordIcon] = useState(false)
    const navogate = useNavigate()
     const handleRegister = e =>{
@@ -47,10 +47,10 @@ function Register() {
           toast.success("Successfully logged in with Google", {
             position: "top-center",
           });
-          navigate(location?.state ? location.state : "/");
+          navogate(location?.state ? location.state : "/");
         })
         .catch((err) => {
-          serError(err.code);
+          setError(err.code);
         });
     };
   return (
@@ -154,6 +154,7 @@ function Register() {
             </button>
             <button
             onClick={signUpGoogle}
+            type="button"
             className="btn border-black rounded-lg border w-full my-2"
           >
           <FcGoogle size={25} />          Google Sign-Up
